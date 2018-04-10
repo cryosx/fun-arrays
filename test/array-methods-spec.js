@@ -7,14 +7,18 @@ describe('Array Methods', function() {
   describe('hundredThousandairs', function() {
     it('should be an array with accounts from bankBalances that are greater than 100000', function() {
       arrayMethods.hundredThousandairs.should.have.length(93);
-      arrayMethods.hundredThousandairs.every(function (account){ return account.amount > 100000; }).should.be.true;
+      arrayMethods.hundredThousandairs.every(function(account) {
+        return account.amount > 100000;
+      }).should.be.true;
     });
   });
 
   describe('datasetWithRoundedDollar', function() {
     it('should be an array of accounts with an added key `rounded`', function() {
       arrayMethods.datasetWithRoundedDollar.should.have.length(100);
-      arrayMethods.datasetWithRoundedDollar.every(function (account){ return account.hasOwnProperty('rounded'); }).should.be.true;
+      arrayMethods.datasetWithRoundedDollar.every(function(account) {
+        return account.hasOwnProperty('rounded');
+      }).should.be.true;
     });
 
     it('each accounts `rounded` value should be rounded to the nearest dollar', function() {
@@ -29,17 +33,29 @@ describe('Array Methods', function() {
   describe('datasetWithRoundedDime', function() {
     it('should be a new dataset of accounts with an added key `roundedDime`', function() {
       arrayMethods.datasetWithRoundedDime.should.have.length(100);
-      arrayMethods.datasetWithRoundedDime.every(function (account){ return account.hasOwnProperty('amount'); }).should.be.true;
-      arrayMethods.datasetWithRoundedDime.every(function (account){ return account.hasOwnProperty('roundedDime'); }).should.be.true;
+      arrayMethods.datasetWithRoundedDime.every(function(account) {
+        return account.hasOwnProperty('amount');
+      }).should.be.true;
+      arrayMethods.datasetWithRoundedDime.every(function(account) {
+        return account.hasOwnProperty('roundedDime');
+      }).should.be.true;
 
       // should NOT have a property of `rounded`
-      arrayMethods.datasetWithRoundedDime.every(function (account){ return !account.hasOwnProperty('rounded'); }).should.be.true;
+      arrayMethods.datasetWithRoundedDime.every(function(account) {
+        return !account.hasOwnProperty('rounded');
+      }).should.be.true;
     });
 
-    it('each account\'s `roundedDime` value should be the `amount` value rounded to the nearest dime', function() {
-      arrayMethods.datasetWithRoundedDime[0].roundedDime.should.be.equal(822370.7);
-      arrayMethods.datasetWithRoundedDime[7].roundedDime.should.be.equal(231272);
-      arrayMethods.datasetWithRoundedDime[99].roundedDime.should.be.equal(196085.9);
+    it("each account's `roundedDime` value should be the `amount` value rounded to the nearest dime", function() {
+      arrayMethods.datasetWithRoundedDime[0].roundedDime.should.be.equal(
+        822370.7
+      );
+      arrayMethods.datasetWithRoundedDime[7].roundedDime.should.be.equal(
+        231272
+      );
+      arrayMethods.datasetWithRoundedDime[99].roundedDime.should.be.equal(
+        196085.9
+      );
     });
   });
 
@@ -86,7 +102,19 @@ describe('Array Methods', function() {
     });
 
     it('should contain only abbreviations of states who have sums of amounts that are less than 1,000,000', function() {
-      arrayMethods.lowerSumStates.should.have.same.members([ 'MI', 'MD', 'IN', 'CA', 'MS', 'MT', 'MO', 'KY', 'AK', 'HI', 'ID' ]);
+      arrayMethods.lowerSumStates.should.have.same.members([
+        'MI',
+        'MD',
+        'IN',
+        'CA',
+        'MS',
+        'MT',
+        'MO',
+        'KY',
+        'AK',
+        'HI',
+        'ID'
+      ]);
     });
   });
 
